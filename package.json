@@ -1,0 +1,8 @@
+{
+  "name": "webvory-task-assignment",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}
