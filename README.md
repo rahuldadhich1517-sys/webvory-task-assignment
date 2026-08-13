@@ -62,43 +62,6 @@ This application provides a comprehensive task management dashboard for internal
 - **PostgreSQL**: Relational database
 - **Supabase**: Managed PostgreSQL hosting platform
 
-## Project Structure
-
-```
-project/
-├── backend/
-│   ├── db/
-│   │   ├── schema.sql          # Database schema definition
-│   │   └── seed.sql            # Sample data for testing
-│   ├── src/
-│   │   ├── routes/             # API route handlers
-│   │   ├── services/           # Business logic
-│   │   ├── schemas/            # Request validation
-│   │   ├── utils/              # Database and error handling
-│   │   └── index.js            # Express app setup
-│   ├── scripts/
-│   │   └── setup.js            # Database initialization script
-│   ├── package.json
-│   └── .env                    # Environment configuration (git-ignored)
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/         # Reusable UI components
-│   │   ├── pages/              # Page components
-│   │   ├── services/           # API service layer
-│   │   ├── App.jsx             # Main app component with routing
-│   │   └── main.jsx            # React entry point
-│   ├── index.html
-│   ├── vite.config.js          # Vite configuration with API proxy
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
-│   └── package.json
-│
-├── .env.example                # Environment variables template
-├── .gitignore                  # Git ignore rules
-└── README.md                   # This file
-```
-
 ## Prerequisites
 
 - **Node.js** 16+ (for both frontend and backend)
@@ -538,44 +501,6 @@ npm start
 
 Runs the backend server (not using nodemon in production)
 
-## Testing the Application
-
-### Complete End-to-End Flow
-1. Dashboard loads with statistics
-2. Navigate to Tasks page
-3. Create a new task with all fields
-4. Search for a task
-5. Filter by status
-6. Filter by priority
-7. Sort by different fields
-8. Navigate to task details
-9. Add a comment
-10. Edit the task status
-11. Delete a comment
-12. Go to Team page
-13. Verify external API data loads
-14. Test responsive design on mobile
-
-### API Testing
-
-Use curl or Postman to test API endpoints:
-
-```bash
-# Get all tasks
-curl http://localhost:4000/api/tasks
-
-# Get pending tasks
-curl "http://localhost:4000/api/tasks?status=Pending"
-
-# Create a task
-curl -X POST http://localhost:4000/api/tasks \
-  -H "Content-Type: application/json" \
-  -d '{"title":"Test","status":"Pending","priority":"High","assigned_to":1}'
-
-# Get dashboard statistics
-curl http://localhost:4000/api/dashboard
-```
-
 ## Troubleshooting
 
 ### Backend won't start
@@ -596,27 +521,3 @@ curl http://localhost:4000/api/dashboard
 - Ensure `DATABASE_URL` is set correctly
 - Verify database server is accessible
 - Check PostgreSQL logs for detailed errors
-
-## License
-
-MIT
-
-## Support
-
-For issues or questions, refer to the API documentation above or review the source code in the respective directories.
-- `DELETE /api/comments/:id` - Delete a comment
-
-### External Integration
-
-- `GET /api/external/users` - Fetch external user data from JSONPlaceholder
-
-## Assumptions
-
-- Current user is seeded as user with ID `1`.
-- Authentication is not implemented.
-- Backend handles filtering, searching, sorting, and pagination.
-
-## Notes
-
-- If `psql` is not found on Windows, add PostgreSQL bin to your PATH or use a database GUI.
-- The frontend and backend live in separate workspace folders.
